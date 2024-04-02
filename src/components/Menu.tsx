@@ -26,6 +26,13 @@ const Menu = () => {
                                     Users
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to={'/roles'} className={({ isActive, isPending }) =>
+                                    isPending ? "nav-link active" : isActive ? "nav-link disabled" : "nav-link"
+                                } >
+                                    Roles
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
                 </nav>
