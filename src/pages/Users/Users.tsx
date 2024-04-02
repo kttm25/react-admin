@@ -29,8 +29,12 @@ const Users = () => {
       setPage(page + 1)
   }
 
-  const del = (id: number) => {
+  const del = async (id: number) => {
+    if(window.confirm('Are you sure you want to delete this record?')){
+      await axios.delete(`users/${id}`);
 
+      setUsers(users.filter((u: User) => (u.id !== id)))
+    }
   }
 
   return (
