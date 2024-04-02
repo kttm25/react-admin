@@ -9,7 +9,7 @@ const Nav = () => {
     })
 
     useEffect(() =>{
-        axios.get('http://localhost:8000/api/user', {withCredentials: true}).then((res: AxiosResponse) =>{
+        axios.get('user').then((res: AxiosResponse) =>{
             setUser(res.data)
         }).catch((e)=> {
             console.log(e)
