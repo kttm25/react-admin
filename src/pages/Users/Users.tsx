@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import Wrapper from "../../components/Wrapper";
 import axios from "axios";
 import { User } from "../../models/user";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -20,7 +21,7 @@ const Users = () => {
   }, [page])
 
   const prev = () => {
-    if (page > 1 )
+    if (page > 1)
       setPage(page - 1)
   }
 
@@ -30,7 +31,7 @@ const Users = () => {
   }
 
   const del = async (id: number) => {
-    if(window.confirm('Are you sure you want to delete this record?')){
+    if (window.confirm('Are you sure you want to delete this record?')) {
       await axios.delete(`users/${id}`);
 
       setUsers(users.filter((u: User) => (u.id !== id)))
@@ -39,6 +40,9 @@ const Users = () => {
 
   return (
     <Wrapper>
+      <div className="pt-3 pb-2 mb-3 border-bottom">
+        <Link to={"/users/create"} className="btn btn-sm btn-outline-secondary">Add</Link>
+      </div>
       <div className="table-responsive small">
         <table className="table table-striped table-sm">
           <thead>
