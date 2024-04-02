@@ -64,6 +64,7 @@ const Users = () => {
                   <td scope="col">{user.role.name}</td>
                   <td scope="col">
                     <div className="btn-group mr-2">
+                      <Link to={{pathname : `/users/edit`, search: `?id=${user.id}` }} className="btn btn-sm btn-outline-secondary">Edit</Link>
                       <a href="#" className="btn btn-sm btn-outline-secondary" onClick={() => del(user.id)} >Delete</a>
                     </div>
                   </td>
