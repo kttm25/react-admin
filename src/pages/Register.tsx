@@ -28,7 +28,6 @@ class Register extends Component {
             this.setState({
                 redirect: true
             })
-            console.log(this.state.redirect)
         } catch (e) {
             console.log(e)
         }

@@ -6,21 +6,22 @@ import { User } from "../models/user";
 const Nav = () => {
     const [user, setUser] = useState(new User())
 
-    useEffect(() =>{
-        axios.get('user').then((res: AxiosResponse) =>{
+    useEffect(() => {
+        axios.get('user').then((res: AxiosResponse) => {
             const { data } = res;
             setUser(new User(
                 data.id,
                 data.first_name,
                 data.last_name,
-                data.email
+                data.email,
+                data.role
             ))
-        }).catch((e)=> {
+        }).catch((e) => {
             console.log(e)
         })
     }, [])
 
-    const logout = async () =>{
+    const logout = async () => {
         await axios.delete('logout', {})
     }
 
