@@ -16,14 +16,6 @@ class Register extends Component {
     submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        console.log({
-            first_name: this.first_name,
-            last_name: this.last_name,
-            email: this.email,
-            password: this.password,
-            password_confirm: this.password_confirm,
-        })
-
         try {
             const response = await axios.post('http://localhost:8000/api/register', {
                 first_name: this.first_name,
@@ -51,7 +43,7 @@ class Register extends Component {
             return (
                 <main className="form-signin w-100 m-auto">
                     <form onSubmit={this.submit}>
-                        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+                        <h1 className="h3 mb-3 fw-normal">Please signup</h1>
     
                         <input type="text" className="form-control" placeholder="First Name" required
                             onChange={e => this.first_name = e.target.value}
