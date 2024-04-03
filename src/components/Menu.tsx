@@ -33,6 +33,13 @@ const Menu = () => {
                                     Roles
                                 </NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to={'/products'} className={({ isActive, isPending }) =>
+                                    isPending ? "nav-link active" : isActive ? "nav-link disabled" : "nav-link"
+                                } >
+                                    Products
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
                 </nav>

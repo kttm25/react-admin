@@ -10,6 +10,7 @@ import UserEdit from './pages/Users/UserEdit';
 import Roles from './pages/Roles/Roles';
 import RolesCreate from './pages/Roles/RolesCreate';
 import RolesEdit from './pages/Roles/RolesEdit';
+import Products from './pages/Products/Products';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path={'/roles'} Component={Roles} />
           <Route path={'/roles/create'} Component={RolesCreate} />
           <Route path={'/roles/edit'} Component={RolesEdit} />
+          <Route path={'/products'} Component={Products} />
         </Routes>
       </BrowserRouter>
     </div>
