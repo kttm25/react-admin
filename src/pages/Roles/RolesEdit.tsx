@@ -27,7 +27,7 @@ const RolesEdit = () => {
 
     const check = (id: number) => {
         if (selected.some((per_id) => (per_id === id))) {
-            selected.filter((per_id) => (per_id !== id))
+            setSelected(selected.filter((per_id) => (per_id !== id)));
         } else {
             setSelected([...selected, id])
         }
