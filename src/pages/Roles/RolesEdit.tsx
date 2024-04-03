@@ -65,9 +65,9 @@ const RolesEdit = () => {
                             return (
                                 <div className="form-check form-check-inline col-3" key={per.id}>
                                     <input className="form-check-input" type="checkbox"
-                                        defaultChecked={selected.some(s => s === per.id)}
+                                        checked={selected.some(s => s === per.id)}
                                         value={per.id} 
-                                        onChange={(id) => check(per.id)} />
+                                        onChange={() => check(per.id)} />
                                     <label className="form-check-label">{per.name}</label>
                                 </div>
                             )
