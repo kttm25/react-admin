@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import UserCreate from './pages/Users/UserCreate';
 import UserEdit from './pages/Users/UserEdit';
 import Roles from './pages/Roles/Roles';
+import RolesCreate from './pages/Roles/RolesCreate';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path={'/users/create'} Component={UserCreate} />
           <Route path={'/users/edit'} Component={UserEdit} />
           <Route path={'/roles'} Component={Roles} />
+          <Route path={'/roles/create'} Component={RolesCreate} />
         </Routes>
       </BrowserRouter>
     </div>
