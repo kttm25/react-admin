@@ -58,7 +58,7 @@ const Products = () => {
 
                                         <td>
                                             <div className="btn-group mr-2">
-                                                <Link to={{ pathname: `/roles/edit`, search: `?id=${p.id}` }} className="btn btn-sm btn-outline-secondary">Edit</Link>
+                                                <Link to={{ pathname: `/products/edit`, search: `?id=${p.id}` }} className="btn btn-sm btn-outline-secondary">Edit</Link>
                                                 <a href="#" className="btn btn-sm btn-outline-secondary" onClick={() => del(p.id)} >Delete</a>
                                             </div>
                                         </td>

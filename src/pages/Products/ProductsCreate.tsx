@@ -9,7 +9,7 @@ const ProductsCreate = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState('0');
     const [redirect, setRedirect] = useState(false)
 
     const submit = async (e: SyntheticEvent) => {
@@ -38,7 +38,7 @@ const ProductsCreate = () => {
 
                 <div className="mb-3 mt-3 row">
                     <label> Description </label>
-                    <input type="text" className="form-control" onChange={(e) => setDescription(e.target.value)} />
+                    <textarea className="form-control" onChange={(e) => setDescription(e.target.value)} />
                 </div>
 
 
@@ -53,7 +53,7 @@ const ProductsCreate = () => {
 
                 <div className="mb-3 mt-3 row">
                     <label> Price </label>
-                    <input type="number" className="form-control" onChange={(e) => setPrice(parseInt(e.target.value))} />
+                    <input type="text" className="form-control" onChange={(e) => setPrice(e.target.value)} />
                 </div>
 
                 <button className="btn btn-outline-secondary" type="submit">Save</button>
