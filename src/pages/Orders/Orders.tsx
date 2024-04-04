@@ -6,12 +6,22 @@ import axios from 'axios';
 import { Order } from '../../models/order';
 import { OrderItem } from '../../models/orderItem';
 
+const hide = {
+    maxHeight : 0,
+    transition: '500ms ease-in'
+}
+
+const show = {
+    maxHeight : '150px',
+    transition: '500ms ease-out'
+}
+
 const Orders = () => {
 
     const [orders, setOrders] = useState([])
     const [page, setPage] = useState(1);
     const [lastpage, setLastPage] = useState(0);
-
+    const [selected, setSelected] = useState(0)
 
     useEffect(() => {
         (
@@ -22,6 +32,12 @@ const Orders = () => {
             }
         )()
     }, [])
+
+    const select = (id: number) =>{
+        setSelected(selected === id ? 0: id)
+    }
+
+
     return (
         <Wrapper>
             <div className="pt-3 pb-2 mb-3 border-bottom">
@@ -40,23 +56,24 @@ const Orders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((p: Order) => {
+                            orders.map((o: Order) => {
                                 return (
                                     <>
-                                        <tr key={p.id}>
-                                            <td scope="col">{p.id}</td>
-                                            <td scope="col">{p.name}</td>
-                                            <td scope="col">{p.email}</td>
-                                            <td scope="col">{p.total}</td>
+                                        <tr key={o.id}>
+                                            <td scope="col">{o.id}</td>
+                                            <td scope="col">{o.name}</td>
+                                            <td scope="col">{o.email}</td>
+                                            <td scope="col">{o.total}</td>
                                             <td scope="col">
-                                                <a href='#' className='btn btn-sm btn-outline-secondary'>
+                                                <a href='#' className='btn btn-sm btn-outline-secondary'
+                                                    onClick={() => {select(o.id)}}>
                                                     View
                                                 </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colSpan={5}>
-                                                <div>
+                                                <div className='overflow-hidden' style={selected === o.id ? show : hide}>
                                                     <table className='table table-sm'>
                                                         <thead>
                                                             <tr>
@@ -67,7 +84,7 @@ const Orders = () => {
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            {p.order_items.map((pi: OrderItem) => {
+                                                            {o.order_items.map((pi: OrderItem) => {
                                                                 return (
                                                                     <tr key={pi.id}>
                                                                         <td>{pi.id}</td>
