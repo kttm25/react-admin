@@ -4,18 +4,29 @@ import Menu from './Menu';
 import axios, { AxiosResponse } from 'axios';
 import { Navigate } from 'react-router-dom';
 
+import { connect } from 'react-redux'
+import { User } from '../models/user';
+import { Dispatch } from 'redux';
+import { setUser } from '../redux/actions/setUserAction';
+
 const Wrapper = (props: any) => {
     const [redirect, setRedirect] = useState(false)
-    useEffect(() =>{
-        axios.get('user').then((res: AxiosResponse) =>{
-            
-            
-        }).catch((e)=> {
+    useEffect(() => {
+        axios.get('user').then((res: AxiosResponse) => {
+
+            props.setUer(new User(
+                res.data.id,
+                res.data.first_name,
+                res.data.last_name,
+                res.data.email,
+                res.data.role,
+            ))
+        }).catch((e) => {
             setRedirect(true);
         })
     }, [])
 
-    if(redirect){
+    if (redirect) {
         return <Navigate to={'/login'} />
     }
     return (
@@ -34,4 +45,16 @@ const Wrapper = (props: any) => {
     )
 }
 
-export default Wrapper;
+const mapStateToProps = (state: { user: User }) => {
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+    return {
+        setUser: (user: User) => dispatch(setUser(user))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wrapper);

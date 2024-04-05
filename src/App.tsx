@@ -14,6 +14,7 @@ import Products from './pages/Products/Products';
 import ProductsCreate from './pages/Products/ProductsCreate';
 import ProductsEdit from './pages/Products/ProductsEdit';
 import Orders from './pages/Orders/Orders';
+import Profil from './pages/Profil';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={'/'} Component={Dashboard} />
+          <Route path={'/profil'} Component={Profil} />
           <Route path={'/register'} Component={Register} />
           <Route path={'/login'} Component={Login} />
           <Route path={'/users'} Component={Users} />
