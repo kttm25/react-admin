@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { SyntheticEvent, useState } from "react"
+import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 const Login = () =>{
@@ -37,7 +38,8 @@ const Login = () =>{
                             <input type="password" className="form-control" placeholder="Password" required
                                 onChange={e => setPassword(e.target.value)}
                             />
-                            <button className="btn btn-primary w-100 py-2" type="submit">Submit</button>
+                            <button className="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+                            <Link to={'/register'} >Create a new account</Link>
                         </form>
                     </main>
         )
