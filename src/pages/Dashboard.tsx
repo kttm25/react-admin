@@ -30,7 +30,6 @@ const Dashboard = () => {
                 });
 
                 const {data} = await axios.get('chart');
-                console.log(data);
 
                 chart.load({
                     columns:[

@@ -66,7 +66,7 @@ const Orders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((o: Order) => {
+                            orders.map((o: Order, key: number) => {
                                 return (
                                     <>
                                         <tr key={o.id}>

@@ -14,7 +14,7 @@ const Wrapper = (props: any) => {
     useEffect(() => {
         axios.get('user').then((res: AxiosResponse) => {
 
-            props.setUer(new User(
+            props.setUser(new User(
                 res.data.id,
                 res.data.first_name,
                 res.data.last_name,
@@ -22,6 +22,7 @@ const Wrapper = (props: any) => {
                 res.data.role,
             ))
         }).catch((e) => {
+            console.log(e)
             setRedirect(true);
         })
     }, [])
@@ -46,12 +47,15 @@ const Wrapper = (props: any) => {
 }
 
 const mapStateToProps = (state: { user: User }) => {
+    
+    console.log("ici")
     return {
         user: state.user
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+    console.log('ici 2')
     return {
         setUser: (user: User) => dispatch(setUser(user))
     }
